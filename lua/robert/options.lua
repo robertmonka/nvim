@@ -42,6 +42,10 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
+-- spell check
+opt.spelllang = "en_us"
+opt.spell = true
+
 -- clipboard
 -- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 vim.g.clipboard = {
