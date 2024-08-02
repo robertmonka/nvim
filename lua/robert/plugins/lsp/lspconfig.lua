@@ -59,7 +59,7 @@ return {
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 		end
 
-		-- used to enable autocompletion (assign to every lsp server config)
+		-- used to enable auto completion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
@@ -76,8 +76,20 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- configure html server
-		lspconfig["yamlls"].setup({
+		-- configure docker_compose_language_service server
+		lspconfig["docker_compose_language_service"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure dockerls server
+		lspconfig["dockerls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure bashls server
+		lspconfig["bashls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

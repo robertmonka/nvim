@@ -43,8 +43,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 -- spell check
-opt.spelllang = "en_us"
-opt.spell = true
+opt.spelllang = "en,pl"
+-- opt.spell = true
 
 -- clipboard
 -- opt.clipboard:append("unnamedplus") -- use system clipboard as default register

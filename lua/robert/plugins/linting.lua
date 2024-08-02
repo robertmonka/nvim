@@ -13,7 +13,8 @@ return {
 			-- svelte = { "eslint_d" },
 			-- python = { "pylint" },
 			-- php = { "phpmd" },
-			yaml = { "yamllint", "actionlint" },
+			yaml = { "yamllint" },
+			dockerfile = { "hadolint" },
 			-- json = { "jsonlint", "cfn-lint" },
 			json = { "jsonlint" },
 		}
