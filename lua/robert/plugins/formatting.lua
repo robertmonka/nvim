@@ -7,12 +7,12 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				-- javascript = { "prettier" },
+				javascript = { "prettier" },
 				-- typescript = { "prettier" },
 				-- javascriptreact = { "prettier" },
 				-- typescriptreact = { "prettier" },
 				-- svelte = { "prettier" },
-				php = { "php-cs-fixer", "phpcbf" },
+				php = { "phpcbf", "easy-coding-standard" },
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
@@ -20,7 +20,8 @@ return {
 				markdown = { "prettier" },
 				graphql = { "prettier" },
 				lua = { "stylua" },
-				-- python = { "isort", "black" },
+				python = { "isort", "black" },
+				-- sql = { "sqlfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

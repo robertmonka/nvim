@@ -26,8 +26,8 @@ return {
 				--        icons = {
 				--          glyphs = {
 				--            folder = {
-				--              arrow_closed = "", -- arrow when folder is closed
-				--              arrow_open = "", -- arrow when folder is open
+				--              arrow_closed = "´üí", -- arrow when folder is closed
+				--              arrow_open = "´üú", -- arrow when folder is open
 				--            },
 				--          },
 				--        },
@@ -46,7 +46,12 @@ return {
 				custom = { ".DS_Store" },
 			},
 			git = {
-				ignore = false,
+				ignore = true,
+			},
+			-- enable following the current file
+			update_focused_file = {
+				enable = true,
+				update_cwd = true,
 			},
 		})
 

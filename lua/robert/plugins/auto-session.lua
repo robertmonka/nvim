@@ -1,6 +1,8 @@
 return {
 	"rmagatti/auto-session",
 	config = function()
+		vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,localoptions"
+
 		local auto_session = require("auto-session")
 
 		auto_session.setup({

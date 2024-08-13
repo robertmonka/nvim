@@ -34,6 +34,7 @@ return {
 				"docker_compose_language_service",
 				"dockerls",
 				"bashls",
+				"sqlls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -43,10 +44,13 @@ return {
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
-				-- "isort", -- python formatter
-				-- "black", -- python formatter
-				-- "pylint", -- python linter
+				"isort", -- python formatter
+				"black", -- python formatter
+				"pylint", -- python linter
 				-- "eslint_d", -- js linter
+				"jsonlint",
+				"sqlfluff", -- sql linter
+				-- "slq-formatter",
 			},
 		})
 	end,
