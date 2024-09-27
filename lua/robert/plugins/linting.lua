@@ -12,7 +12,7 @@ return {
 			-- typescriptreact = { "eslint_d" },
 			-- svelte = { "eslint_d" },
 			python = { "pylint" },
-			-- php = { "phpmd" },
+			php = { "easy-coding-standard" },
 			yaml = { "yamllint" },
 			dockerfile = { "hadolint" },
 			-- json = { "jsonlint", "cfn-lint" },
