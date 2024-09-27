@@ -1,6 +1,8 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	tag = "v0.9.0",
 	event = { "BufReadPre", "BufNewFile" },
+	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns

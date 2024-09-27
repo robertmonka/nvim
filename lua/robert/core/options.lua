@@ -47,7 +47,7 @@ opt.spelllang = "en,pl"
 -- opt.spell = true
 
 -- clipboard
--- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 vim.g.clipboard = {
 	name = "WslClipboard",
 	copy = {
@@ -60,3 +60,4 @@ vim.g.clipboard = {
 	},
 	cache_enabled = 0,
 }
+vim.g.python3_host_prog = "/usr/bin/python3"
