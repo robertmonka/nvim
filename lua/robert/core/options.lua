@@ -33,7 +33,7 @@ opt.termguicolors = true
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
--- opt.mouse = "a"
+opt.mouse = "a"
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
@@ -47,17 +47,17 @@ opt.spelllang = "en,pl"
 -- opt.spell = true
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-vim.g.clipboard = {
-	name = "WslClipboard",
-	copy = {
-		["+"] = "clip.exe",
-		["*"] = "clip.exe",
-	},
-	paste = {
-		["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-		["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-	},
-	cache_enabled = 0,
-}
+-- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- vim.g.clipboard = {
+-- 	name = "WslClipboard",
+-- 	copy = {
+-- 		["+"] = "clip.exe",
+-- 		["*"] = "clip.exe",
+-- 	},
+-- 	paste = {
+-- 		["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+-- 		["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+-- 	},
+-- 	cache_enabled = 0,
+-- }
 vim.g.python3_host_prog = "/usr/bin/python3"

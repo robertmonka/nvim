@@ -47,4 +47,7 @@ keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", { desc = "Move text down" })
 keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { desc = "Move text up" })
 
 -- Clppboard
-keymap.set("v", "<C-c>", '"+y', { desc = "Copy to clipboard" })
+-- vim.keymap.set("n", "y", 'y"+y', { noremap = true })
+-- vim.keymap.set("n", "Y", 'Y"+Y', { noremap = true })
+-- vim.keymap.set("v", "y", 'y"+y', { noremap = true })
+keymap.set("v", "<leader>c", '"+y', { desc = "Copy to clipboard" })
