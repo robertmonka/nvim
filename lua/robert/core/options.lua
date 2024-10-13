@@ -60,4 +60,4 @@ opt.spelllang = "en,pl"
 -- 	},
 -- 	cache_enabled = 0,
 -- }
-vim.g.python3_host_prog = "/usr/bin/python3"
+vim.g.python3_host_prog = "~/.config/nvim/env/bin/python3"
