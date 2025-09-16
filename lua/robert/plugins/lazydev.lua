@@ -9,6 +9,13 @@ return {
 				{ path = "luvit-meta/library", words = { "vim%.uv" } },
 			},
 		},
+		config = function(_, opts)
+			require("lazydev").setup(vim.tbl_deep_extend("force", opts, {
+				integrations = {
+					lspconfig = false, -- disable lspconfig integration
+				},
+			}))
+		end,
 	},
 	{ "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
 	{ -- optional completion source for require statements and module annotations
@@ -21,5 +28,5 @@ return {
 			})
 		end,
 	},
-	-- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
+	{ "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 }
