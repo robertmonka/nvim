@@ -8,8 +8,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
+		-- import lspconfig plugin (using new API)
+		local lspconfig = vim.lsp.config
 
 		-- import mason_lspconfig plugin (for reference)
 		-- local mason_lspconfig = require("mason-lspconfig")
@@ -92,7 +92,7 @@ return {
 		
 		for _, server_name in ipairs(servers) do
 			if server_name == "lua_ls" then
-				lspconfig["lua_ls"].setup({
+				lspconfig("lua_ls", {
 					capabilities = capabilities,
 					settings = {
 						Lua = {
@@ -107,7 +107,7 @@ return {
 					},
 				})
 			else
-				lspconfig[server_name].setup({
+				lspconfig(server_name, {
 					capabilities = capabilities,
 				})
 			end
