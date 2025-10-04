@@ -14,6 +14,27 @@ return {
 		comment.setup({
 			-- for commenting tsx, jsx, svelte, html files
 			pre_hook = ts_context_commentstring.create_pre_hook(),
+			-- Required fields
+			padding = true,
+			sticky = true,
+			ignore = "^$",
+			mappings = {
+				basic = true,
+				extra = true,
+			},
+			toggler = {
+				line = "gcc",
+				block = "gbc",
+			},
+			opleader = {
+				line = "gc",
+				block = "gb",
+			},
+			extra = {
+				above = "gcO",
+				below = "gco",
+				eol = "gcA",
+			},
 		})
 	end,
 }
