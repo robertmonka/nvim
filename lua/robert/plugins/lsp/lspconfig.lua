@@ -89,8 +89,16 @@ return {
 		-- end
 
 		-- Configure common LSP servers
-		local servers = { "html", "cssls", "intelephense", "lua_ls", "docker_compose_language_service", "dockerls", "bashls", "sqlls" }
-		
+		local servers = {
+			"html",
+			"cssls",
+			"intelephense",
+			"lua_ls",
+			"docker_compose_language_service",
+			"dockerls",
+			"bashls",
+			"sqlls",
+		}
 		for _, server_name in ipairs(servers) do
 			if server_name == "lua_ls" then
 				lspconfig("lua_ls", {
