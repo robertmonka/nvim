@@ -1,3 +1,4 @@
+require("robert.core.env").setup()
 require("robert.core.options")
 require("robert.core.keymaps")
 require("robert.core.lazy")

@@ -1,46 +1,116 @@
+-- Test comment: Avante.nvim plugin configuration for AI-powered coding assistance
 return {
 	"yetone/avante.nvim",
 	event = "VeryLazy",
-	version = "*", -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+	version = false,
+	build = "make",
 	opts = {
-		provider = "perplexity",
+		provider = "claude",
+		-- Mode: "agentic" uses tools to automatically generate code, "legacy" uses old planning method
+		mode = "agentic",
+		auto_suggestions_provider = "claude",
+
+		-- Project-specific instruction file
+		instructions_file = "avante.md",
+
+		-- Workaround for window ID validation issues
+		debug = false,
+
+		-- Provider settings
 		providers = {
-			perplexity = {
-				__inherited_from = "openai", -- Dziedziczenie z OpenAI
-				endpoint = "https://api.perplexity.ai/chat/completions", -- Adres URL API Perplexity
-				model = "sonar-pro", -- Model AI do użycia
-				api_key_name = "PERPLEXITY_API_KEY", -- Nazwa zmiennej środowiskowej dla klucza API
-				headers = {
-					["Authorization"] = "Bearer ${PERPLEXITY_API_KEY}", -- Nagłówek autoryzacji
-					["Content-Type"] = "application/json", -- Typ zawartości
-				},
-				exclude_body_parameters = {
-					"presence_penalty", -- Perplexity wymaga, aby frequency_penalty było > 0
-					"stop", -- Niektóre modele Perplexity nie obsługują parametru stop
-				},
-				body_parameters = {
-					frequency_penalty = 1, -- Musi być > 0
-					temperature = 0.7, -- Temperatura odpowiedzi
+			claude = {
+				endpoint = "https://api.anthropic.com",
+				model = "claude-sonnet-4-20250514",
+				timeout = 30000,
+				extra_request_body = {
+					temperature = 0.75,
+					max_tokens = 20480,
 				},
 			},
 		},
+		windows = {
+			sidebar_header = {
+				enabled = false,
+			},
+			fillchars = "eob: ",
+			position = "right",
+			wrap = true,
+			width = 40,
+			sidebar = {
+				size = 40,
+			},
+			ask = {
+				floating = false,
+				border = "rounded",
+				start_insert = true,
+			},
+			edit = {
+				border = "rounded",
+				start_insert = true,
+			},
+		},
+		highlights = {
+			diff = {
+				current = "DiffChange",
+				incoming = "DiffAdd",
+			},
+		},
+		behaviour = {
+			auto_suggestions = false,
+			auto_apply_diff_after_generation = true,
+			auto_set_highlight_group = true,
+			auto_set_keymaps = true,
+			support_paste_from_clipboard = true,
+		},
+		hints = {
+			enabled = false,
+		},
+		mappings = {
+			--- @class AvanteConflictMappings
+			diff = {
+				ours = "co",
+				theirs = "ct",
+				all_theirs = "ca",
+				both = "cb",
+				cursor = "cc",
+				next = "]x",
+				prev = "[x",
+			},
+			suggestion = {
+				accept = "<M-l>",
+				next = "<M-]>",
+				prev = "<M-[>",
+				dismiss = "<C-]>",
+			},
+			jump = {
+				next = "]]",
+				prev = "[[",
+			},
+			submit = {
+				normal = "<CR>",
+				insert = "<C-s>",
+			},
+			sidebar = {
+				apply_all = "A",
+				apply_cursor = "a",
+				switch_windows = "<Tab>",
+				reverse_switch_windows = "<S-Tab>",
+			},
+		},
+		selector = {
+			exclude_auto_select = { "NvimTree" },
+		},
 	},
-	theme = "nightfox",
-	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-	build = "make",
-	-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+
+	-- Dependencies
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"stevearc/dressing.nvim",
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
-		--- The below dependencies are optional,
-		"echasnovski/mini.pick", -- for file_selector provider mini.pick
-		"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-		"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-		"ibhagwan/fzf-lua", -- for file_selector provider fzf
-		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-		"zbirenbaum/copilot.lua", -- for providers='copilot'
+		"nvim-telescope/telescope.nvim",
+		"hrsh7th/nvim-cmp",
+		"nvim-tree/nvim-web-devicons",
 		{
 			-- support for image pasting
 			"HakonHarnes/img-clip.nvim",
@@ -58,6 +128,7 @@ return {
 				},
 			},
 		},
+
 		{
 			-- Make sure to set this up properly if you have lazy=true
 			"MeanderingProgrammer/render-markdown.nvim",
