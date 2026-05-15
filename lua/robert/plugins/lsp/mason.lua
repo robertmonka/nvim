@@ -50,7 +50,7 @@ return {
 				-- "eslint_d", -- js linter
 				"jsonlint",
 				"sqlfluff", -- sql linter
-				"easy-coding-standard",
+				-- "easy-coding-standard",
 				-- "slq-formatter",
 			},
 		})
