@@ -56,6 +56,7 @@ return {
 				ignore_dirs = function(path)
 					local normalized = path:gsub("\\", "/")
 					return normalized:find("/.claude/skills", 1, true) ~= nil
+						or normalized:find("/.codex", 1, true) ~= nil
 				end,
 			},
 			-- enable following the current file
