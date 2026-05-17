@@ -55,6 +55,10 @@ return {
 				max_events = 200,
 				ignore_dirs = function(path)
 					local normalized = path:gsub("\\", "/")
+					-- Any path inside .git/ (e.g. objects/). NVim-tree's built-in is_git() only skips the .git node itself.
+					if normalized:find("/.git/", 1, true) ~= nil then
+						return true
+					end
 					return normalized:find("/.claude/skills", 1, true) ~= nil
 						or normalized:find("/.codex", 1, true) ~= nil
 				end,
