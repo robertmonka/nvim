@@ -26,3 +26,10 @@ require("lazy").setup({
 		notify = false,
 	},
 })
+
+-- Ubuntu pakuje treesitter w /usr/lib/.../nvim; lazy przebudowuje rtp i tę ścieżkę gubi
+-- (bez niej :helptags / lazy docs → "No parser for language vimdoc").
+local deb_parsers = "/usr/lib/x86_64-linux-gnu/nvim"
+if vim.uv.fs_stat(deb_parsers) and not vim.o.rtp:find(deb_parsers, 1, true) then
+	vim.opt.rtp:append(deb_parsers)
+end

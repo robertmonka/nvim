@@ -8,8 +8,9 @@ return {
 			"L3MON4D3/LuaSnip",
 			-- follow latest release.
 			version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-			-- install jsregexp (optional!).
-			build = "make install_jsregexp",
+			-- install jsregexp (optional!). Po buildzie wyczyść artefakty w submodule,
+			-- inaczej lazy update pada na: deps/jsregexp/... not uptodate. Cannot merge.
+			build = "make install_jsregexp && git submodule foreach --recursive 'git reset --hard && git clean -fd'",
 		},
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
